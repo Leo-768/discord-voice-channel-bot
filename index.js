@@ -8,6 +8,8 @@ const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
 const settings = new Keyv('sqlite://isbn/afkt/fdvxcc.sqlite');
 
+keyv.on('error', err => console.log('Connection Error', err));
+
 //啟動
 client.on("ready", () => {
     console.log("機器人載入完成!");

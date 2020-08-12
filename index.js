@@ -81,6 +81,7 @@ client.on("voiceStateUpdate", ( vd, v) =>{
         let name = settings[vd.guild.id].name || "$ 的頻道";
         name = name.replace(/\$/g,v.member.nickname || v.member.user.username);
         v.guild.channels.create(name,{type: 'voice', parent: settings[v.guild.id].cat, permissionOverwrites:[{id:v.member,allow:871368465}]})
+            .catch(() => {})
             .then(ch => {
                 v.member.voice.setChannel(ch);
                 log.send(`**[c]** ${v.guild.name}(${v.guild.id}) ${v.member.user.tag}(${v.member.id}): ${ch.name}(${ch.id})`)

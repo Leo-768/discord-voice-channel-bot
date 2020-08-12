@@ -34,7 +34,7 @@ client.on("message", msg => {
             txt = txt.toString();
             msg.channel.send(txt);
         });
-    }else if(msg.member.hasPermission(8)){
+    }else if(msg.member.hasPermission(8) && (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18}$/) || (msg.content.startsWith('v!setcreat ') && msg.content.slice(11).match(/^[0-9]{18}$/)) || (msg.content.startsWith('v!setname ') && msg.content.slice(10)) || msg.content === 'v!setname' || msg.content === 'v!reset')){
         fs.readFile(`./settings.json`,function(err,setFile){
             if(err){
                 console.log(err);

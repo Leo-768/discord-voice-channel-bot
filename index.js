@@ -36,7 +36,7 @@ client.on("message", msg => {
             msg.channel.send(txt);
         });
     }else if(msg.member.hasPermission(8) && (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18}$/) || (msg.content.startsWith('v!setcreat ') && msg.content.slice(11).match(/^[0-9]{18}$/)) || (msg.content.startsWith('v!setname ') && msg.content.slice(10)) || msg.content === 'v!setname' || msg.content === 'v!reset')){
-        encryptor.decryptFile('./settings.dat','./settings.json',process.env.key,function(err){
+        encryptor.decryptFile('./settings.dat','./settings.json',process.env.key,{},function(err){
             if(err)console.log(err);
             fs.readFile(`./settings.dat`,function(err,setFile){
                 if(err){
@@ -69,7 +69,7 @@ client.on("message", msg => {
                 file = JSON.stringify(file);
                 fs.writeFile(`./settings.json`,file,function(err){
                     if(err){console.log(err);};
-                    encryptor.encryptFile('./settings.json','./settings.dat',process.env.key,function(err){
+                    encryptor.encryptFile('./settings.json','./settings.dat',process.env.key,{},function(err){
                         if(err)console.log(err);
                         fs.writeFile('./settings.json','',function(){if(err)console.log(err);});
                     });
@@ -81,7 +81,7 @@ client.on("message", msg => {
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (v.channel === vd.channel || !v.channel){return;};
     if (!v.guild.me.hasPermission(8)){return v.guild.leave();};
-    encryptor.decryptFile('./settings.dat','./settings.json',process.env.key,function(err){
+    encryptor.decryptFile('./settings.dat','./settings.json',process.env.key,{},function(err){
         if(err)console.log(err);
         fs.readFile(`./settings.json`,function(err,setFile){
             if (err){
@@ -104,7 +104,7 @@ client.on("voiceStateUpdate", ( vd, v) =>{
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (!vd.channel || v.channel === vd.channel){return;};
     if (!v.guild.me.hasPermission(8)){return vd.guild.leave();};
-    encryptor.decryptFile('./settings.dat','./settings.json',process.env.key,function(err){
+    encryptor.decryptFile('./settings.dat','./settings.json',process.env.key,{},function(err){
         if(err)console.log(err);
         fs.readFile(`./settings.json`,function(err,setFile){
             if (err){

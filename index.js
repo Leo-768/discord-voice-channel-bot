@@ -6,7 +6,7 @@ const fs = require('fs');
 const Keyv = require('keyv');
 const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
-const settings = new Keyv('mongodb://leo768:1234@localhost:27017/bot');
+const settings = new Keyv('postgresql://user:pass@localhost:5432/dbname');
 
 settings.on('error', err => console.log('Connection Error', err));
 

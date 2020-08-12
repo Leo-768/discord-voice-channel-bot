@@ -2,6 +2,7 @@
 這個機器人將在使用者加入指定語音頻道時在指定類別建立一個專屬於他的頻道，他將有管理該頻道的所有權限，而該頻道也將在沒有在裡面的人有 `管理權限` 權限的時候被刪除。
 輸入 `v!help` 以查看所有指令。
 
+Github: https://github.com/Leo-768/discord-voice-channel-bot
 你可以用該連結把我邀請至你的伺服器:
 <https://discord.com/api/oauth2/authorize?client_id=742023404575522857&permissions=8&scope=bot>
 如果我沒有 `管理者` 權限我就會自己離開。

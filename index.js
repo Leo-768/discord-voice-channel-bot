@@ -5,6 +5,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
+
 //啟動
 client.on("ready", () => {
     console.log("機器人載入完成!");

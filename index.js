@@ -8,7 +8,7 @@ const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
 const settings = new Keyv('mongodb://leo768:1234@localhost:27017/bot');
 
-keyv.on('error', err => console.log('Connection Error', err));
+settings.on('error', err => console.log('Connection Error', err));
 
 //啟動
 client.on("ready", () => {

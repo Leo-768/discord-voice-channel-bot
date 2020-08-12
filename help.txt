@@ -1,0 +1,13 @@
+指令列表(*注意:除`info`和`help`外皆須**管理者**權限*)：
+:white_small_square: `v!info`
+    顯示資訊。
+:white_small_square: `v!help`
+    顯示此訊息。
+:white_small_square: `v!setcat <類別ID>`
+    設定語音頻道所要生成到的類別，裡面的語音頻道在中斷連線後可能被刪除。
+:white_small_square: `v!setcreat <頻道ID>`
+    設定加入後會生成動態語音頻道的頻道，如果在上述類別中並不會被刪除。
+:white_small_square: `v!setname [<名稱>]`
+    設定生成動態語音頻道的名稱，`$` 會被替換為名字(如未填名稱將重置)。
+:white_small_square: `v!reset`
+    重置設定。

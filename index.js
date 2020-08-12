@@ -6,7 +6,7 @@ const fs = require('fs');
 const Keyv = require('keyv');
 const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
-const settings = new Keyv('sqlite://1tttt23/tbdkbhdobht321.sqlite');
+const settings = new Keyv('sqlite://isbn/afkt/fdvxcc.sqlite');
 
 //啟動
 client.on("ready", () => {

@@ -38,7 +38,7 @@ client.on("message", msg => {
             msg.channel.send(txt);
         });
     }else if(msg.member.hasPermission(8)){
-        let set = await settings.get(msg.guild.id)
+        let set = settings.get(msg.guild.id)
         if (!set) set = {};
         if (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18}$/)){
             set.cat = msg.content.slice(9);
@@ -67,7 +67,7 @@ client.on("message", msg => {
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (v.channel === vd.channel || !v.channel){return;};
     if (!v.guild.me.hasPermission(8)){return v.guild.leave();};
-    let set = await settings.get(msg.guild.id)
+    let set = settings.get(msg.guild.id)
     if ( !set || set.creat !== v.channel.id || !set.cat){return;};
     let name = set.name || "$ 的頻道";
     name = name.replace(/\$/g,v.member.nickname || v.member.user.username);
@@ -80,7 +80,7 @@ client.on("voiceStateUpdate", ( vd, v) =>{
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (!vd.channel || v.channel === vd.channel){return;};
     if (!v.guild.me.hasPermission(8)){return vd.guild.leave();};
-    let set = await settings.get(msg.guild.id)
+    let set = settings.get(msg.guild.id)
     if ( !set || !set.creat || !set.cat){return;};
     if (vd.channel.id === set.creat || vd.channel.parentID !== set.cat){return;};
     if (!vd.channel.members.find(user => user.permissionsIn(vd.channel).has("MANAGE_ROLES"))){

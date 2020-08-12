@@ -78,7 +78,6 @@ client.on("voiceStateUpdate", ( vd, v) =>{
         let settings = setFile.toString();
         settings = JSON.parse(settings);
         if ( !settings[v.guild.id] || settings[vd.guild.id].creat !== v.channel.id || !settings[v.guild.id].cat){return;};
-        if (!client.channels.cache.find(ch => {ch.id === settings[v.guild.id].cat && ch.type === 'category'})) return;
         let name = settings[v.guild.id].name || "$ 的頻道";
         name = name.replace(/\$/g,v.member.nickname || v.member.user.username);
         v.guild.channels.create(name,{type: 'voice', parent: settings[v.guild.id].cat, permissionOverwrites:[{id:v.member,allow:871368465}]})

@@ -6,9 +6,9 @@ const fs = require('fs');
 const aesjs = require('aes-js');
 const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
-const pbkdf2 = require('pbkdf2');
-const key_128 = pbkdf2.pbkdf2Sync(process.env.key, 'salt', 1, 256 / 8, 'sha512');
-const key = new Buffer(key_128);
+//const pbkdf2 = require('pbkdf2');
+//const key = pbkdf2.pbkdf2Sync(process.env.key, 'salt', 1, 256 / 8, 'sha512');
+const key = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 
 //啟動
 client.on("ready", () => {

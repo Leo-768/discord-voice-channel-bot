@@ -19,8 +19,9 @@
   },
   "homepage": "https://github.com/Leo-768/discord-voice-channel-bot#readme",
   "dependencies": {
+    "aes-js": "^3.1.2",
     "discord.js": "^12.2.0",
     "express": "^4.17.1",
-    "file-encryptor": "^0.1.1"
+    "pbkdf2": "^3.1.1"
   }
 }

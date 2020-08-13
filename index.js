@@ -3,12 +3,8 @@ console.log("機器人載入中...")
 const keepAlive = require('./server');
 const Discord = require('discord.js');
 const fs = require('fs');
-const aesjs = require('aes-js');
 const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
-//const pbkdf2 = require('pbkdf2');
-//const key = pbkdf2.pbkdf2Sync(process.env.key, 'salt', 1, 256 / 8, 'sha512');
-const key = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 
 //啟動
 client.on("ready", () => {
@@ -39,15 +35,11 @@ client.on("message", msg => {
             msg.channel.send(txt);
         });
     }else if(msg.member.hasPermission(8) && (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18}$/) || (msg.content.startsWith('v!setcreat ') && msg.content.slice(11).match(/^[0-9]{18}$/)) || (msg.content.startsWith('v!setname ') && msg.content.slice(10)) || msg.content === 'v!setname' || msg.content === 'v!reset')){
-        fs.readFile(`./settings.dat`,function(err,setFile){
+        fs.readFile(`./settings.json`,function(err,setFile){
             if(err){
                 console.log(err);
             };
             var file = setFile.toString()
-            file = aesjs.utils.hex.toBytes(file)
-            let aesEcb = new aesjs.ModeOfOperation.ecb(key)
-            file = aesEcb.decrypt(file);
-            file = aesjs.utils.utf8.fromBytes(file);
             file = JSON.parse(file);
             if (!file[msg.guild.id]){file[msg.guild.id] = {};};
             if (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18}$/)){
@@ -72,10 +64,7 @@ client.on("message", msg => {
                 log.send(`**[cmd]** ${msg.guild.name}(${msg.guild.id}) ${msg.author.tag}(${msg.author.id}): \`${msg.content}\``);
             };
             file = JSON.stringify(file);
-            file = aesjs.utils.utf8.toBytes(file);
-            file = aesEcb.encrypt(file)
-            file = aesjs.utils.hex.fromBytes(file);
-            fs.writeFile(`./settings.dat`,file,function(err){if(err){console.log(err);};});
+            fs.writeFile(`./settings.json`,file,function(err){if(err){console.log(err);};});
         });
     };
 });

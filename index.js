@@ -7,7 +7,6 @@ const aesjs = require('aes-js');
 const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
 const pbkdf2 = require('pbkdf2');
-const { settings } = require('cluster');
 const key_128 = pbkdf2.pbkdf2Sync(process.env.key, 'salt', 1, 256 / 8, 'sha512');
 const key = new Buffer(key_128);
 
@@ -45,7 +44,7 @@ client.on("message", msg => {
                 console.log(err);
             };
             var file = setFile.toString()
-            file = aesjs.utils.hex.toBytes(setFile)
+            file = aesjs.utils.hex.toBytes(file)
             let aesEcb = new aesjs.ModeOfOperation.ecb(key)
             file = aesEcb.decrypt(file);
             file = aesjs.utils.utf8.fromBytes(file);

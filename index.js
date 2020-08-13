@@ -73,7 +73,6 @@ client.on("message", msg => {
             };
             file = JSON.stringify(file);
             file = aesjs.utils.utf8.toBytes(file);
-            let aesCtr = new aesjs.ModeOfOperation.ctr(key);
             file = aesCtr.encrypt(file)
             file = aesjs.utils.hex.fromBytes(file);
             fs.writeFile(`./settings.dat`,file,function(err){if(err){console.log(err);};});

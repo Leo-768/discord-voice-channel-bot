@@ -11,6 +11,7 @@ client.on("ready", () => {
     console.log("機器人載入完成!");
     log.send("機器人啟動!");
 });
+//加入及離開
 client.on("guildCreate", guild => {
     log.send(`**[join]** ${guild.name}(${guild.id})`)
     if (!guild.me.hasPermission(8)){guild.leave();};
@@ -18,7 +19,11 @@ client.on("guildCreate", guild => {
 client.on("guildDelete", guild => {
     log.send(`**[leave]** ${guild.name}(${guild.id})`)
 });
-//訊息
+//DM
+client.on("message", msg => {
+    if (!msg.author.bot && msg.channel.type === "dm") msg.channel.send('你只能在伺服器中使用指令!\n你可以在<https://github.com/Leo-768/discord-voice-channel-bot>支援我')
+});
+//指令
 client.on("message", msg => {
     if (!msg.guild || msg.author.bot || !msg.content.startsWith('v!')){return;};
     if (!msg.guild.me.hasPermission(8)){return msg.guild.leave();};
@@ -68,6 +73,7 @@ client.on("message", msg => {
         });
     };
 });
+//建立
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (v.channel === vd.channel || !v.channel){return;};
     if (!v.guild.me.hasPermission(8)){return v.guild.leave();};
@@ -87,6 +93,7 @@ client.on("voiceStateUpdate", ( vd, v) =>{
             });
     });
 });
+//刪除
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (!vd.channel || v.channel === vd.channel){return;};
     if (!v.guild.me.hasPermission(8)){return vd.guild.leave();};

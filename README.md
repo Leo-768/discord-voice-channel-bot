@@ -1,7 +1,7 @@
 [![Run on Repl.it](https://repl.it/badge/github/Leo-768/discord-voice-channel-bot)](https://repl.it/github/Leo-768/discord-voice-channel-bot)
 
 我是一個由Leo_768(#9133)編寫的Discord機器人，用於製造動態語音頻道。
-你可以用[這個連結](https://discord.com/api/oauth2/authorize?client_id=742023404575522857&permissions=8&scope=bot)邀請我。
+你可以用[這個連結](https://discord.com/api/oauth2/authorize?client_id=742023404575522857&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fgithub.com%2FLeo-768%2Fdiscord-voice-channel-bot&scope=bot)邀請我。
 
 如果我沒有 `管理者` 權限的話我將離開該伺服器。
 

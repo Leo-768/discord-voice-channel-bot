@@ -40,7 +40,7 @@ client.on("message", msg => {
             msg.channel.send(txt);
         });
     }else if(msg.member.hasPermission(8) && (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18}$/) || (msg.content.startsWith('v!setcreat ') && msg.content.slice(11).match(/^[0-9]{18}$/)) || (msg.content.startsWith('v!setname ') && msg.content.slice(10)) || msg.content === 'v!setname' || msg.content === 'v!reset')){
-        fs.readFile(`./settings.json`,function(err,setFile){
+        fs.readFile(`./settings/.env`,function(err,setFile){
             if(err){
                 console.log(err);
             };
@@ -69,7 +69,7 @@ client.on("message", msg => {
                 log.send(`**[cmd]** ${msg.guild.name}(${msg.guild.id}) ${msg.author.tag}(${msg.author.id}): \`${msg.content}\``);
             };
             file = JSON.stringify(file);
-            fs.writeFile(`./settings.json`,file,function(err){if(err){console.log(err);};});
+            fs.writeFile(`./settings/.env`,file,function(err){if(err){console.log(err);};});
         });
     };
 });
@@ -77,7 +77,7 @@ client.on("message", msg => {
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (v.channel === vd.channel || !v.channel){return;};
     if (!v.guild.me.hasPermission(8)){return v.guild.leave();};
-    fs.readFile(`./settings.json`,function(err,setFile){
+    fs.readFile(`./settings/.env`,function(err,setFile){
         if (err){
             console.log(err);
         };
@@ -97,7 +97,7 @@ client.on("voiceStateUpdate", ( vd, v) =>{
 client.on("voiceStateUpdate", ( vd, v) =>{
     if (!vd.channel || v.channel === vd.channel){return;};
     if (!v.guild.me.hasPermission(8)){return vd.guild.leave();};
-    fs.readFile(`./settings.json`,function(err,setFile){
+    fs.readFile(`./settings/.env`,function(err,setFile){
         if (err){
             console.log(err);
         };

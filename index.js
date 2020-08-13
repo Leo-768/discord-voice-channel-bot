@@ -57,11 +57,11 @@ client.on("message", msg => {
                 log.send(`**[cmd]** ${msg.guild.name}(${msg.guild.id}) ${msg.author.tag}(${msg.author.id}): \`${msg.content}\``);
             }else if (msg.content.startsWith('v!setname ') && msg.content.slice(10)){
                 file[msg.guild.id].name = msg.content.slice(10);
-                msg.channel.send('預設名稱設定成功!');
+                msg.channel.send('頻道預設名稱設定成功!');
                 log.send(`**[cmd]** ${msg.guild.name}(${msg.guild.id}) ${msg.author.tag}(${msg.author.id}): \`${msg.content}\``);
             }else if (msg.content === 'v!setname'){
                 delete file[msg.guild.id].name;
-                msg.channel.send('預設名稱已刪除!');
+                msg.channel.send('頻道預設名稱已刪除!');
                 log.send(`**[cmd]** ${msg.guild.name}(${msg.guild.id}) ${msg.author.tag}(${msg.author.id}): \`${msg.content}\``);
             }else if (msg.content === 'v!reset'){
                 delete file[msg.guild.id];

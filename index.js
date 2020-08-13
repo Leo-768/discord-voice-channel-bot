@@ -8,7 +8,7 @@ const client = new Discord.Client();
 const log = new Discord.WebhookClient(process.env.WID,process.env.WT);
 const pbkdf2 = require('pbkdf2');
 const { settings } = require('cluster');
-const key = pbkdf2.pbkdf2Sync('password', 'salt', 1, 256 / 8, 'sha512');
+const key = pbkdf2.pbkdf2Sync(process.env.key, 'salt', 1, 256 / 8, 'sha512');
 
 //啟動
 client.on("ready", () => {
@@ -45,8 +45,8 @@ client.on("message", msg => {
             };
             var file = setFile.toString()
             file = aesjs.utils.hex.toBytes(setFile)
-            let aesCtr = new aesjs.ModeOfOperation.ctr(key)
-            file = aesCtr.decrypt(file);
+            let aesEcb = new aesjs.ModeOfOperation.ecb(key)
+            file = aesEcb.decrypt(file);
             file = aesjs.utils.utf8.fromBytes(file);
             file = JSON.parse(file);
             if (!file[msg.guild.id]){file[msg.guild.id] = {};};
@@ -73,7 +73,7 @@ client.on("message", msg => {
             };
             file = JSON.stringify(file);
             file = aesjs.utils.utf8.toBytes(file);
-            file = aesCtr.encrypt(file)
+            file = aesEcb.encrypt(file)
             file = aesjs.utils.hex.fromBytes(file);
             fs.writeFile(`./settings.dat`,file,function(err){if(err){console.log(err);};});
         });

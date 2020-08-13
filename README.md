@@ -1,5 +1,3 @@
-[![Run on Repl.it](https://repl.it/badge/github/Leo-768/discord-voice-channel-bot)](https://repl.it/github/Leo-768/discord-voice-channel-bot)
-
 # English
 
 I am a Discord bot written by Leo_768(#9133), which is used to generate dynamic voice channels.

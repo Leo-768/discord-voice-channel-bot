@@ -44,7 +44,7 @@ This robot will create a channel dedicated to him in the specified category when
 * `v!help`
   * 查看所有指令。
 * `v!setcat <類別ID>`
-  * 設定語音頻道所要生成到的類別，裡面的語音頻道在中斷連線後可能被刪除。
+  * 設定語音頻道所要生成到的類別，裡面的語音頻道在中斷連線後可能會被刪除。
 * `v!setcreat <頻道ID>`
   * 設定加入後會生成動態語音頻道的頻道，如果在上述類別中並不會被刪除。
 * `v!setname [<名稱>]`

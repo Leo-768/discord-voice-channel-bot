@@ -1,4 +1,4 @@
-<h1 align="center">動態語音頻道機器人<br><font size=3>Dynamic Voice Channels Bot</font></h1>
+<h1 align="center">動態語音頻道機器人<br>Dynamic Voice Channels Bot</h1>
 
 # English
 

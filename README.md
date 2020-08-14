@@ -1,3 +1,5 @@
+<h1 align="center">動態語音頻道機器人<br><font size=3>Dynamic Voice Channels Bot</font></h1>
+
 # English
 
 I am a Discord bot written by Leo_768(#9133), which is used to generate dynamic voice channels.
@@ -24,7 +26,7 @@ This robot will create a channel dedicated to him in the specified category when
 * `v!reset`
   * Reset settings.
 
-# Chinese
+# 中文
 
 我是一個由Leo_768(#9133)編寫的Discord機器人，用於產生動態語音頻道。
 

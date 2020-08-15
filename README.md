@@ -18,7 +18,7 @@ This robot will create a channel dedicated to him in the specified category when
 * `v!help`
   * View all commands.
 * `v!setcat <category ID>`
-  * Set the type of voice channel to be generated. The voice channel inside may be deleted after disconnection.
+  * Set the category of voice channel to be generated. The voice channel inside may be deleted after disconnection.
 * `v!setcreat <channel ID>`
   * Set the channel that will generate the dynamic voice channel after joining, if it is in the above category, it will not be deleted.
 * `v!setname [<name>]`

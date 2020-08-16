@@ -6,8 +6,6 @@ I am a Discord bot written by Leo_768(#9133), which is used to generate dynamic 
 
 You can use [this link](https://discord.com/api/oauth2/authorize?client_id=742023404575522857&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fgithub.com%2FLeo-768%2Fdiscord-voice-channel-bot&scope=bot) to invite me.
 
-If I don't have `Administrator` permission, I will leave the server.
-
 ## Description
 This robot will create a channel dedicated to him in the specified category when the user joins the specified voice channel. He will have all the permissions to manage the channel, and the channel will been deleted when it was not any user in the channel  has `Mange Permission` permission.
 
@@ -31,8 +29,6 @@ This robot will create a channel dedicated to him in the specified category when
 我是一個由Leo_768(#9133)編寫的Discord機器人，用於產生動態語音頻道。
 
 你可以用[這個連結](https://discord.com/api/oauth2/authorize?client_id=742023404575522857&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fgithub.com%2FLeo-768%2Fdiscord-voice-channel-bot&scope=bot)邀請我。
-
-如果我沒有 `管理者` 權限的話我將離開該伺服器。
 
 ## 說明
 這個機器人將在使用者加入指定語音頻道時在指定類別建立一個專屬於他的頻道，他將有管理該頻道的所有權限，而該頻道也將在裡面的沒有人有 `管理權限` 權限的時候被刪除。

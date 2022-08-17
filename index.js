@@ -46,11 +46,11 @@ client.on("message", msg => {
                 var file = setFile.toString()
                 file = JSON.parse(file);
                 if (!file[msg.guild.id]){file[msg.guild.id] = {};};
-                if (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18}$/)){
+                if (msg.content.startsWith('v!setcat ') && msg.content.slice(9).match(/^[0-9]{18,}$/)){
                     file[msg.guild.id].cat = msg.content.slice(9);
                     msg.channel.send('類別設定成功!');
                     log.send(`**[cmd]** ${msg.guild.name}(${msg.guild.id}) ${msg.author.tag}(${msg.author.id}): \`${msg.content}\``);
-                }else if (msg.content.startsWith('v!setcreat ') && msg.content.slice(11).match(/^[0-9]{18}$/)){
+                }else if (msg.content.startsWith('v!setcreat ') && msg.content.slice(11).match(/^[0-9]{18,}$/)){
                     file[msg.guild.id].creat = msg.content.slice(11);
                     msg.channel.send('頻道設定成功!');
                     log.send(`**[cmd]** ${msg.guild.name}(${msg.guild.id}) ${msg.author.tag}(${msg.author.id}): \`${msg.content}\``);
